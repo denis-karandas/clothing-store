@@ -1,0 +1,60 @@
+.catalog__pagination {
+  display: flex;
+  color: #2C2C2C;
+  font-size: 14px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+
+  input {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #2C2C2C;
+    text-align: center;
+    outline: none;
+    margin-right: 7px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin-right: 7px;
+  }
+
+  &:first-child span, &:last-child span {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #2C2C2C;
+    transition: .3s ease-in-out;
+
+    svg line {
+      stroke:  #2C2C2C;
+      transition: .3s ease-in-out;
+    }
+
+    &:hover {
+      background-color: #2C2C2C;
+
+      svg line {
+        stroke:  #ffffff;
+      }
+    }
+  }
+
+  span:first-child svg {
+    transform: rotate(90deg);
+  }
+
+  span:last-child {
+    margin: 0;
+  }
+
+  span:last-child svg {
+    transform: rotate(-90deg);
+  }
+}

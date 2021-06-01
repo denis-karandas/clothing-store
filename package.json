@@ -1,0 +1,11 @@
+{
+  "name": "ClothingStore",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"yarn --cwd client run start\" \"yarn --cwd admin run start\" \"yarn --cwd server babel-node\""
+  },
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

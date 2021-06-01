@@ -1,0 +1,16 @@
+.catalog {
+  &__wrapper {
+    display: flex;
+    min-height: calc(100vh - 140px);
+  }
+
+  &__left {
+    min-width: 200px;
+    padding-top: 20px;
+  }
+
+  &__right {
+    width: 100%;
+    padding-top: 20px;
+  }
+}

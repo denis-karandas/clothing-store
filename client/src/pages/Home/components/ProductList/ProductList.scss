@@ -1,0 +1,125 @@
+.productList {
+  margin-bottom: 50px;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2C2C2C;
+      margin: 0;
+    }
+
+    span {
+      position: relative;
+
+      a {
+        color: #2C2C2C;
+        font-size: 14px;
+        font-weight: bold;
+
+        &:before {
+          content: '';
+          width: 0;
+          height: 1px;
+          background-color: #2C2C2C;
+          transition: .3s ease-in-out;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+
+        &:hover:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      width: calc(calc(100% - 60px) / 4);
+      position: relative;
+      margin-right: 20px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__image {
+    height: 350px;
+    margin-bottom: 10px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    &:before {
+      content: '';
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      border: 1px solid #ffffff;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+  }
+
+  &__name {
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 14px;
+      color: #2C2C2C;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+
+    p, span {
+      font-size: 14px;
+      color: #2C2C2C;
+    }
+
+    span {
+      text-decoration: line-through;
+      margin-left: 10px;
+    }
+  }
+
+  &__discount {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #E12E2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+  }
+}

@@ -1,0 +1,10 @@
+export const SET_INPUT_FILTER_VALUE = 'SET_INPUT_FILTER_VALUE'
+export const SET_CHECKBOX_FILTER_VALUE = 'SET_CHECKBOX_FILTER_VALUE'
+
+export const SET_PRODUCTS = 'SET_PRODUCTS'
+export const SET_NEXT_PAGE = 'SET_NEXT_PAGE'
+export const SET_PREV_PAGE = 'SET_PREV_PAGE'
+export const SET_PAGE = 'SET_PAGE'
+export const SET_SORT_BY = 'SET_SORT_BY'
+
+export const SET_LOADING = 'SET_LOADING'

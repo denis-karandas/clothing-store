@@ -1,0 +1,47 @@
+.checkbox-filter {
+  ul {
+    margin-left: 10px;
+    transition: max-height .3s ease-in-out;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 5px;
+
+      input {
+        display: none;
+      }
+
+      input + label {
+        position: relative;
+        margin-left: 22px;
+        cursor: pointer;
+      }
+
+      input + label:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border: 2px solid #2C2C2C;
+        background-color: #ffffff;
+        position: absolute;
+        top: 4.4px;
+        left: -22px;
+        cursor: pointer;
+      }
+
+      input:checked + label:before {
+        background-color: #2C2C2C;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

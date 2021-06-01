@@ -1,0 +1,13 @@
+.input-filter {
+  input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2C2C2C;
+    padding: 10px;
+
+    &::placeholder {
+      color: #2C2C2C;
+      font-size: 14px;
+    }
+  }
+}

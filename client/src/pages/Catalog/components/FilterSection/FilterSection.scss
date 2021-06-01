@@ -1,0 +1,42 @@
+.catalog__left h2 {
+  min-height: 28px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.filter {
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid #2C2C2C;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+
+    svg {
+      transition: .3s ease-in-out;
+      transform: rotate(90deg);
+    }
+
+    p, svg {
+      cursor: pointer;
+    }
+  }
+
+  &.active svg {
+    transform: rotate(0deg);
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
