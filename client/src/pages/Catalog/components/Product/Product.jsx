@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {NavLink} from "react-router-dom"
-import './Product.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from "react-router-dom";
+import './Product.scss';
 
 const Product = ({ item, i }) => {
     const discountLabel = (
@@ -40,4 +40,4 @@ Product.propTypes = {
     i: PropTypes.number
 }
 
-export default Product
+export default Product;

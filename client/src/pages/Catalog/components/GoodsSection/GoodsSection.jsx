@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Product from "../Product/Product"
-import SortBy from "../SortBy/SortBy"
-import Pagination from "../Pagination/Pagination"
-import './GoodsSection.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Product from "../Product/Product";
+import SortBy from "../SortBy/SortBy";
+import Pagination from "../Pagination/Pagination";
+import './GoodsSection.scss';
 
 const GoodsSection = ({ items, total, page, limit, loading }) => {
     return (
@@ -24,7 +24,7 @@ const GoodsSection = ({ items, total, page, limit, loading }) => {
                 }
             </ul>
             {
-                loading && <div className="catalog__loader"></div>
+                loading && <div className="catalog__loader"/>
             }
         </div>
     )
@@ -38,4 +38,4 @@ GoodsSection.propTypes = {
     loading: PropTypes.bool
 }
 
-export default GoodsSection
+export default GoodsSection;

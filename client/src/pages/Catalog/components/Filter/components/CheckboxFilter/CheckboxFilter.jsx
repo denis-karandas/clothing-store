@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import {useDispatch} from "react-redux"
-import PropTypes from 'prop-types'
-import {setCheckboxFilter} from "../../../../redux/actions/filter"
-import './CheckboxFilter.scss'
+import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { setCheckboxFilter } from "../../../../../../redux/actions/catalogAction";
+import './CheckboxFilter.scss';
 
 const CheckboxFilter = ({ id, title, name, items }) => {
     const filterRef = useRef();
@@ -25,9 +25,7 @@ const CheckboxFilter = ({ id, title, name, items }) => {
         }
     }
 
-   const checkboxClickHandler = e => {
-        dispatch(setCheckboxFilter(id, e.target.value))
-   }
+   const checkboxClickHandler = e => dispatch(setCheckboxFilter(id, e.target.value));
 
     useEffect(() => {
         document.body.addEventListener('click', toggleFilter);
@@ -70,4 +68,4 @@ CheckboxFilter.propTypes = {
     items: PropTypes.array
 }
 
-export default CheckboxFilter
+export default CheckboxFilter;

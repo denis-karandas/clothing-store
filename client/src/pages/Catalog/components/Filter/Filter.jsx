@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import InputFilter from "../InputFilter/InputFilter.jsx"
-import CheckboxFilter from "../CheckboxFilter/CheckboxFilter.jsx"
+import React from 'react';
+import PropTypes from 'prop-types';
+import InputFilter from "./components/InputFilter/InputFilter.jsx";
+import CheckboxFilter from "./components/CheckboxFilter/CheckboxFilter.jsx";
+import { CHECKBOX_FILTER, INPUT_FILTER } from "../../utils/constants/filter";
 
-export const INPUT_FILTER = 'INPUT_FILTER';
-export const CHECKBOX_FILTER = 'CHECKBOX_FILTER';
 
 const Filter = ({ id, filter }) => {
     switch (filter.type) {
@@ -12,7 +11,8 @@ const Filter = ({ id, filter }) => {
             return <InputFilter id={id} {...filter} />
         case CHECKBOX_FILTER:
             return <CheckboxFilter id={id} {...filter} />
-        default: return null;
+        default:
+            return null;
     }
 }
 

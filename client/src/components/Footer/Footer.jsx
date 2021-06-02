@@ -1,7 +1,7 @@
-import React from 'react'
-import {Col, Container, Row} from "react-bootstrap"
-import {NavLink} from "react-router-dom"
-import './Footer.scss'
+import React from 'react';
+import { Col, Container, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import './Footer.scss';
 
 const Footer = () => {
     return (
@@ -20,4 +20,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;

@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Filter from "../Filter/Filter"
-import './FilterSection.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Filter from "../Filter/Filter";
+import './FilterSection.scss';
 
 const FilterSection = ({ filters }) => {
     return (
@@ -26,4 +26,4 @@ FilterSection.propTypes = {
     filters: PropTypes.array
 }
 
-export default FilterSection
+export default FilterSection;

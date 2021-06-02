@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Container} from "react-bootstrap"
-import CategoryList from "./CategoryList.jsx"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Container } from "react-bootstrap";
+import CategoryList from "./components/CategoryList/CategoryList.jsx";
 
 import './Submenu.scss'
 

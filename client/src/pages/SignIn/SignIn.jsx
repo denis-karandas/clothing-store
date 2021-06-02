@@ -1,8 +1,8 @@
-import React from 'react'
-import {useForm} from "../../hooks/useForm"
+import React from 'react';
+import { useForm } from "../../hooks/useForm";
 
 const SignIn = () => {
-    const {inputs, onChange, onSubmit, bind} = useForm('#', 'POST')
+    const {inputs, onChange, onSubmit, bind} = useForm('#', 'POST');
 
     return (
         <div>
@@ -15,4 +15,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignIn;

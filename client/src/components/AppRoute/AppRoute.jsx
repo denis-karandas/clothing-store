@@ -1,9 +1,6 @@
-import React from 'react'
-import { Route } from "react-router-dom"
-import PropTypes from 'prop-types'
-
-export const PUBLIC_ROUTE = 1
-export const USER_ROUTE = 2
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Route } from "react-router-dom";
 
 function AppRoute({ path, component, exact }) {
     return <Route path={path} component={component} exact={exact} />

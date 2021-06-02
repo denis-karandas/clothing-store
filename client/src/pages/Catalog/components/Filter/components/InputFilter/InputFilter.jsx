@@ -1,15 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {useDispatch} from "react-redux"
-import {setInputFilter} from "../../../../redux/actions/filter"
-import './InputFilter.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { setInputFilter } from "../../../../../../redux/actions/catalogAction";
+import './InputFilter.scss';
 
 const InputFilter = ({ id, name, placeholder, value }) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const changeValueHandler = e => {
-        dispatch(setInputFilter(id, e.target.value))
-    }
+    const changeValueHandler = e => dispatch(setInputFilter(id, e.target.value));
 
     return (
         <div className="filter input-filter">
@@ -31,4 +29,4 @@ InputFilter.propTypes = {
     value: PropTypes.string
 }
 
-export default InputFilter
+export default InputFilter;

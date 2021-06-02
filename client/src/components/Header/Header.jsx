@@ -1,20 +1,18 @@
-import React, {useEffect, useState} from 'react'
-import {useFetch} from "../../hooks/useFetch"
-import {URL} from "../../services/API"
-import {Col, Container, Nav, Row} from "react-bootstrap"
-import {Link, NavLink} from "react-router-dom"
-import Submenu from "../Submenu/Submenu"
-
-import './Header.scss'
+import React, { useEffect, useState } from 'react';
+import { useFetch } from "../../hooks/useFetch";
+import { URL } from "../../services/API";
+import { Col, Container, Nav, Row } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
+import Submenu from "../Submenu/Submenu";
+import './Header.scss';
 
 const Header = () => {
-    const [menu, setMenu] = useState([])
-
-    const [{ data }] = useFetch({url: URL.COMMON.HEADER_MENU, method: 'GET'})
+    const [menu, setMenu] = useState([]);
+    const [{ data }] = useFetch({ url: URL.APP.HEADER_MENU, method: 'GET' });
 
     useEffect(() => {
-        setMenu(data)
-    }, [data])
+        setMenu(data);
+    }, [data]);
 
     return (
         <div className="header">
@@ -55,4 +53,4 @@ const Header = () => {
     );
 };
 
-export default Header
+export default Header;

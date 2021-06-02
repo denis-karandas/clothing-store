@@ -1,24 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {useDispatch} from "react-redux"
-import {setNextPage, setPage, setPrevPage} from "../../../../redux/actions/catalog"
-import './Pagination.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { setNextPage, setPage, setPrevPage } from "../../../../redux/actions/catalogAction";
+import './Pagination.scss';
 
 const Pagination = ({ total, page, limit }) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const totalPages = Math.ceil(total / limit);
 
     const nextPageHandler = () => {
-        if (page * limit < total) dispatch(setNextPage())
+        if (page * limit < total) dispatch(setNextPage());
     }
 
     const prevPageHandler = () => {
-        if (page > 1) dispatch(setPrevPage())
+        if (page > 1) dispatch(setPrevPage());
     }
 
     const changeValueHandler = e => {
-        const value = +e.target.value
-        if (value > 0 && value <= totalPages) dispatch(setPage(value))
+        const value = +e.target.value;
+        if (value > 0 && value <= totalPages) dispatch(setPage(value));
     }
 
     return (
@@ -41,4 +41,4 @@ Pagination.propTypes = {
     limit: PropTypes.number
 }
 
-export default Pagination
+export default Pagination;

@@ -1,8 +1,23 @@
-import {CHECKBOX_FILTER, INPUT_FILTER} from "../../pages/Catalog/components/Filter/Filter"
-import {SET_CHECKBOX_FILTER_VALUE, SET_INPUT_FILTER_VALUE} from "../actions/actionTypes"
+import { CHECKBOX_FILTER, INPUT_FILTER } from "../../pages/Catalog/utils/constants/filter";
+import {
+    SET_CATALOG_CHECKBOX_FILTER_VALUE,
+    SET_CATALOG_INPUT_FILTER_VALUE,
+    SET_CATALOG_LOADING,
+    SET_CATALOG_NEXT_PAGE,
+    SET_CATALOG_PAGE,
+    SET_CATALOG_PREV_PAGE,
+    SET_CATALOG_PRODUCTS,
+    SET_CATALOG_SORT_BY,
+} from "../actions/actionTypes"
 
 const initialState = {
-    items: [
+    products: [],
+    loading: false,
+    total: 0,
+    page: 1,
+    limit: 3,
+    sortBy: 1,
+    filters: [
         {
             type: INPUT_FILTER,
             name: 'search',
@@ -45,37 +60,66 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-
-        case SET_INPUT_FILTER_VALUE:
+        case SET_CATALOG_PRODUCTS:
             return {
                 ...state,
-                items: [
-                    ...state.items.slice(0, action.payload.id),
+                products: action.payload.products,
+                total: action.payload.total
+            }
+        case SET_CATALOG_NEXT_PAGE:
+            return {
+                ...state,
+                page: state.page + 1
+            }
+        case SET_CATALOG_PREV_PAGE:
+            return {
+                ...state,
+                page: state.page - 1
+            }
+        case SET_CATALOG_PAGE:
+            return {
+                ...state,
+                page: action.payload
+            }
+        case SET_CATALOG_SORT_BY:
+            return {
+                ...state,
+                sortBy: action.payload
+            }
+        case SET_CATALOG_LOADING:
+            return {
+                ...state,
+                loading: action.payload
+            }
+        case SET_CATALOG_INPUT_FILTER_VALUE:
+            return {
+                ...state,
+                filters: [
+                    ...state.filters.slice(0, action.payload.id),
                     {
-                        ...state.items[action.payload.id],
+                        ...state.filters[action.payload.id],
                         value: action.payload.value
                     },
-                    ...state.items.slice(action.payload.id + 1)
+                    ...state.filters.slice(action.payload.id + 1)
                 ]
             }
-
-        case SET_CHECKBOX_FILTER_VALUE: {
-            const checkboxes = [...state.items[action.payload.id].items]
-            const selectedCheckbox = checkboxes.find(item => item.id === +action.payload.checkboxId)
+        case SET_CATALOG_CHECKBOX_FILTER_VALUE: {
+            const checkboxes = [...state.filters[action.payload.id].items];
+            const selectedCheckbox = checkboxes.find(item => item.id === +action.payload.checkboxId);
             const newCheckboxes = checkboxes.map(checkbox => checkbox.id === +action.payload.checkboxId
                 ? { ...selectedCheckbox, checked: !selectedCheckbox.checked }
                 : checkbox
-            )
+            );
 
             return {
                 ...state,
-                items: [
-                    ...state.items.slice(0, action.payload.id),
+                filters: [
+                    ...state.filters.slice(0, action.payload.id),
                     {
-                        ...state.items[action.payload.id],
+                        ...state.filters[action.payload.id],
                         items: newCheckboxes
                     },
-                    ...state.items.slice(action.payload.id + 1)
+                    ...state.filters.slice(action.payload.id + 1)
                 ]
             }
         }

@@ -1,0 +1,2 @@
+export const INPUT_FILTER = 'INPUT_FILTER';
+export const CHECKBOX_FILTER = 'CHECKBOX_FILTER';

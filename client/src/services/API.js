@@ -1,18 +1,21 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000'
-})
+    baseURL: 'http://localhost:5000/api'
+});
 
 api.interceptors.response.use(
     (res) => res.data,
-    (error) => error
+    (error) => Promise.reject(error)
 )
 
 export const URL = {
-    COMMON: {
-        HEADER_MENU: '/api/common/header-menu'
+    APP: {
+        HEADER_MENU: '/common/header-menu'
+    },
+    CATALOG: {
+        SEARCH: '/catalog'
     }
 }
 
-export default api
+export default api;

@@ -1,16 +1,18 @@
 import React from 'react'
+import AppRoute from "../AppRoute/AppRoute";
 import { Route, Switch } from 'react-router-dom'
+import { PUBLIC_ROUTE } from "../../utils/constants/appRouter";
+import Home from "../../pages/Home/Home.jsx";
+import SignIn from "../../pages/SignIn/SignIn";
+import Catalog from "../../pages/Catalog/Catalog.jsx";
+import Product from "../../pages/Product/Product";
+import NotFound from "../../pages/NotFound/NotFound";
+import {HOME_ROUTE} from "../../utils/constants/routes";
 
-import AppRoute, { PUBLIC_ROUTE, USER_ROUTE } from "../AppRoute/AppRoute"
-import Home from "../../pages/Home/Home.jsx"
-import SignIn from "../../pages/SignIn/SignIn"
-import Catalog from "../../pages/Catalog/Catalog.jsx"
-import Product from "../../pages/Product/Product"
-import NotFound from "../../pages/NotFound/NotFound"
 
 const routes = [
     {
-        path: '/',
+        path: HOME_ROUTE,
         component: Home,
         exact: true,
         type: PUBLIC_ROUTE
@@ -20,12 +22,6 @@ const routes = [
         component: SignIn,
         exact: true,
         type: PUBLIC_ROUTE
-    },
-    {
-        path: '/sign-out',
-        component: SignIn,
-        exact: true,
-        type: USER_ROUTE
     },
     {
         path: '/:section?',
@@ -58,4 +54,4 @@ function Routing() {
     );
 }
 
-export default Routing
+export default Routing;

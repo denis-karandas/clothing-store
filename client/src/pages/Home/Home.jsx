@@ -1,21 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {Container} from "react-bootstrap"
-
-import "./Home.scss"
-import MainSection from "./components/MainSection/MainSection"
-import ProductList from "./components/ProductList/ProductList"
-import HomeAPI from "../../services/HomeAPI"
+import React, { useState } from 'react';
+import { Container } from "react-bootstrap";
+import MainSection from "./components/MainSection/MainSection";
+import ProductList from "./components/ProductList/ProductList";
+import "./Home.scss";
 
 const Home = () => {
-    const [topSales, setTopSales] = useState([])
-    const [newProducts, setNewProducts] = useState([])
-    const [seasonalOffers, setSeasonalOffers] = useState([])
-
-    useEffect(() => {
-        // HomeAPI.fetchTopSales().then(items => setTopSales(items))
-        // HomeAPI.fetchNewProducts().then(items => setNewProducts(items))
-        // HomeAPI.fetchSeasonalOffers().then(items => setSeasonalOffers(items))
-    }, [])
+    const [topSales, setTopSales] = useState([]);
+    const [newProducts, setNewProducts] = useState([]);
+    const [seasonalOffers, setSeasonalOffers] = useState([]);
 
     return (
         <div className="home">
@@ -41,4 +33,4 @@ const Home = () => {
     );
 };
 
-export default Home
+export default Home;

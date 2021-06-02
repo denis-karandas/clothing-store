@@ -1,45 +1,44 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {useDispatch, useSelector} from "react-redux"
-import {setSortBy} from "../../../../redux/actions/catalog"
-import classNames from 'classnames'
-import './SortBy.scss'
+import React, { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
+import { useDispatch, useSelector } from "react-redux";
+import { setSortBy } from "../../../../redux/actions/catalogAction";
+import './SortBy.scss';
+import {getCatalog} from "../../../../redux/selectors/catalogSelector";
 
 const items = [
     {id: 1, name: 'Recommended'},
     {id: 2, name: 'Newest'},
     {id: 3, name: 'Price Low - High'},
     {id: 4, name: 'Price High - Low'}
-]
+];
 
 const SortBy = () => {
-    const [toggle, setToggle] = useState(false)
-    const sortByRef = useRef()
-    const dispatch = useDispatch()
-    const activeItem = useSelector(({ catalog }) => catalog.sortBy)
+    const [toggle, setToggle] = useState(false);
+    const { sortBy : activeItem } = useSelector(getCatalog);
+    const dispatch = useDispatch();
+    const sortByRef = useRef();
 
     const classes = classNames('catalog__sort', {
         'active': toggle
-    })
+    });
 
-    const toggleHandler = () => {
-        setToggle(!toggle)
-    }
+    const toggleHandler = () => setToggle(!toggle);
 
     const selectItemHandler = id => {
-        dispatch(setSortBy(id))
-        setToggle(false)
+        dispatch(setSortBy(id));
+        setToggle(false);
     }
 
     const outsideClickHandler = e => {
         const path = e.path || (e.composedPath || e.composedPath());
         if(!path.includes(sortByRef.current)) {
-            setToggle(false)
+            setToggle(false);
         }
     }
 
     useEffect(() => {
         document.body.addEventListener('click', outsideClickHandler);
-    }, [])
+    }, []);
 
     return (
         <div
@@ -66,4 +65,4 @@ const SortBy = () => {
     )
 }
 
-export default SortBy
+export default SortBy;
