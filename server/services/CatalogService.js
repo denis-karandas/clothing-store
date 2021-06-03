@@ -1,4 +1,4 @@
-const Product = require('../models/Product')
+const Product = require('../models/Product');
 
 exports.search = async ({ section, category, filters, pagination, sortBy }) => {
     const matches = []
@@ -37,17 +37,17 @@ exports.search = async ({ section, category, filters, pagination, sortBy }) => {
                 section: '$section.name'
             }
         }
-    ]
+    ];
 
     filters.forEach(filter => {
         switch (filter.type) {
             case 'LIKE':
-                filter.value && matches.push({ [filter.name]: new RegExp(filter.value) })
-                break
+                filter.value && matches.push({ [filter.name]: new RegExp(filter.value) });
+                break;
             case 'OR':
-                filter.value && matches.push({ $or: filter.value.map(item => ({ [filter.name]: item })) })
-                break
-            default: break
+                filter.value && matches.push({ $or: filter.value.map(item => ({ [filter.name]: item })) });
+                break;
+            default: break;
         }
     })
 
@@ -56,29 +56,29 @@ exports.search = async ({ section, category, filters, pagination, sortBy }) => {
             $match: {
                 $and: matches
             }
-        })
+        });
     }
 
     if (pagination) {
         pipelines.push({
             $skip: (pagination.page - 1) * pagination.limit
-        })
+        });
         pipelines.push({
             $limit: pagination.limit
-        })
+        });
     }
 
     switch (sortBy) {
         case 2:
-            pipelines.push({ $sort: { createdAt: -1 } })
-            break
+            pipelines.push({ $sort: { createdAt: -1 } });
+            break;
         case 3:
-            pipelines.push({ $sort: { price: 1 } })
-            break
+            pipelines.push({ $sort: { price: 1 } });
+            break;
         case 4:
-            pipelines.push({ $sort: { price: -1 } })
-            break
-        default: break
+            pipelines.push({ $sort: { price: -1 } });
+            break;
+        default: break;
     }
 
     const products = await Product.aggregate([
@@ -103,7 +103,7 @@ exports.search = async ({ section, category, filters, pagination, sortBy }) => {
                 'products.sections': 0
             }
         }
-    ])
+    ]);
 
-    return products[0]
+    return products[0];
 }

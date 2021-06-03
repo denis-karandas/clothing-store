@@ -11,7 +11,7 @@ api.interceptors.response.use(
 
 export const URL = {
     APP: {
-        HEADER_MENU: '/common/header-menu'
+        HEADER_MENU: '/app/header-menu'
     },
     CATALOG: {
         SEARCH: '/catalog'

@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
 const schema = new Schema({
     name: { type: String, required: true },
@@ -19,6 +19,6 @@ const schema = new Schema({
         ref: 'Filter'
     }],
     createdAt: { type: Date, default: Date.now() }
-})
+});
 
-module.exports = model('Product', schema)
+module.exports = model('Product', schema);

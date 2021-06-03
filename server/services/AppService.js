@@ -1,8 +1,8 @@
-const Section = require('../models/Section')
-const { transactionWrapper } = require('./BaseService')
+const Section = require('../models/Section');
+const { transactionWrapper } = require('./BaseService');
 
 exports.getHeaderMenu = async () => {
-    return await transactionWrapper((session) => {
+    return transactionWrapper((session) => {
         return Section.aggregate([
             {
                 $match: {
@@ -58,14 +58,9 @@ exports.getHeaderMenu = async () => {
                     root: 0,
                     _id: 0,
                     list: 0,
-                    categoryGroups: 0,
-                    submenu: {
-                        list: {
-                            _id: 0
-                        }
-                    }
+                    categoryGroups: 0
                 }
             },
-        ]).session(session)
+        ]).session(session);
     })
 }

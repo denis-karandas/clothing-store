@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
 const schema = Schema({
     name: { type: String, require: true },
@@ -12,6 +12,6 @@ const schema = Schema({
             ref: 'Catalog',
         }]
     }]
-})
+});
 
-module.exports = model('Section', schema)
+module.exports = model('Section', schema);

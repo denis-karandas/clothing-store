@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
 const schema = new Schema({
     type: { type: Number, required: true },
@@ -7,6 +7,6 @@ const schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Filter'
     }]
-}, { collection: 'filters_groups' })
+}, { collection: 'filters_groups' });
 
-module.exports = model('FilterGroups', schema)
+module.exports = model('FilterGroups', schema);

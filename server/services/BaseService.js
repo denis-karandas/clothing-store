@@ -1,17 +1,16 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 exports.transactionWrapper = async func => {
-    const session = await mongoose.startSession()
+    const session = await mongoose.startSession();
     await session.startTransaction();
     try {
-        const response = await func(session)
-        await session.commitTransaction()
+        const response = await func(session);
+        await session.commitTransaction();
 
-        return response
+        return response;
     } catch (e) {
-        console.log(e.message)
-        await session.abortTransaction()
+        await session.abortTransaction();
     } finally {
-        await session.endSession()
+        await session.endSession();
     }
 }

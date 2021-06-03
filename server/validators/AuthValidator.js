@@ -29,7 +29,7 @@ const { firstName, lastName, email, password } = {
 }
 
 const registration = { firstName, lastName, email, password };
-const login = { email, password }
+const login = { email, password };
 
 module.exports = {
     registration,
